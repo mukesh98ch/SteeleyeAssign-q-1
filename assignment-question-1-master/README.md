@@ -29,10 +29,13 @@ Ans=> Put currency={currency} in Dahboard.jsx. the currency variable is used to 
 Ans=> For search feature I use function--- ``` const filteredRows = rows.filter((row) => {
     return row["&id"].toLowerCase().includes(searchText.toLowerCase());
   });```
-  a. The rows variable is an array of rows. The searchText variable is the text that the user is searching for.
-  b. The filter() method takes a function as input. The function takes a row as input and returns a boolean value. If the boolean value is true, the row is included in the filtered array.
-  c. The function checks if the &id property of a row contains the search text. If it does, the function returns true. Otherwise, the function returns false.
-  d. The toLowerCase() method is used to convert the search text to lowercase. This is done so that the filter function is case-insensitive.
+  (a) The rows variable is an array of rows. The searchText variable is the text that the user is searching for.
+  
+  (b) The filter() method takes a function as input. The function takes a row as input and returns a boolean value. If the boolean value is true, the row is included in the filtered array.
+  
+  (c) The function checks if the &id property of a row contains the search text. If it does, the function returns true. Otherwise, the function returns false.
+  
+  (d) The toLowerCase() method is used to convert the search text to lowercase. This is done so that the filter function is case-insensitive.
 
 
 5.  Please clear the console errors and warnings.
@@ -41,5 +44,19 @@ Ans=> For removing errors I use for unique key  ```import { v4 as uuidv4 } from 
 
 6.  When user selects an order, can you populate the Card on top of the listing component as shown in the image
 
-Ans=> This code is an interpretation of the handleOrderSelect() method. This method is invoked when the user selects a order. It sets the status variables selectedOrderDetails and selectedOrderTimestamps to the contents of the selected order.
+Ans=> This code is an interpretation of the handleOrderSelect() method. This method is invoked when the user selects an order. It sets the status variables selectedOrderDetails and selectedOrderTimestamps to the contents of the selected order.
+this code fetches data from Data.json
+``` const handleOrderSelect = (selectedOrder) => {
+    setSelectedOrderDetails({
+      buySellIndicator: selectedOrder.executionDetails.buySellIndicator,
+      orderStatus: selectedOrder.executionDetails.orderStatus,
+      orderType: selectedOrder.executionDetails.orderType,
+    });
+
+    setSelectedOrderTimestamps({
+      orderReceived: selectedOrder.timestamps.orderReceived,
+      orderStatusUpdated: selectedOrder.timestamps.orderStatusUpdated,
+      orderSubmitted: selectedOrder.timestamps.orderSubmitted,
+    });```
+ 
 
